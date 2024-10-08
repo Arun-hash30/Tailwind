@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -11,23 +12,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">    
     <link rel="stylesheet" href="../src/styles.css">
     <link rel="icon" href="../images/icon.png">
+    <style>
+        /* Additional styles for the hamburger menu */
+        .menu-hidden {
+            display: none;
+        }
+    </style>
 </head>
-<body data-spy="scroll" data-target=".fixed-top" class="bg-gradient-to-b from-blue-50 via-white to-blue-50 mx-40">
+<body data-spy="scroll" data-target=".fixed-top" class="bg-gradient-to-b from-blue-50 via-white to-blue-50 max-w-screen-xl p-4 mx-auto sm:px-16">
 
 <!-- Back to Top Button -->
 <a href="body" class="back-to-top page-scroll hidden">Back to Top</a>
 
 <!-- Navigation -->
 <nav class="navbar fixed top-0 left-0 w-full bg-blue-50 shadow z-50 transition-colors duration-300">
-    <div class="container mx-auto px-4 sm:px-10 flex flex-wrap items-center justify-between lg:flex-nowrap">
-        <a class="inline-block py-2 text-xl mx-40" href="index.html">
+    <div class="container max-w-screen-xl p-4 mx-auto sm:px-16 flex flex-wrap items-center justify-between lg:flex-nowrap">
+        <a class="inline-block py-2 text-xl" href="index.html">
             <img src="../images/image.png" alt="alternative" class="h-8">
         </a>
-        <button class="background-transparent rounded text-xl leading-none lg:hidden" type="button" data-toggle="offcanvas">
-            <span class="navbar-toggler-icon inline-block w-8 h-8"></span>
-        </button>
+       
 
-        <div class="navbar-collapse offcanvas-collapse lg:flex lg:flex-grow lg:items-center" id="navbarsExampleDefault">
+        <div class="navbar-collapse lg:flex lg:flex-grow lg:items-center hidden" id="navbarsExampleDefault">
             <ul class="pl-0 mt-3 mb-2 ml-auto flex flex-col list-none lg:mt-0 lg:mb-0 lg:flex-row">
                 <li class="ml-4"> 
                     <a class="nav-link page-scroll active" href="#header">Home</a>
@@ -55,18 +60,35 @@
                     <a class="nav-link page-scroll ml-4" href="#download">Download</a>
                 </li>
             </ul>
-        </div>            
-            <span class="block lg:ml-3.5 mt-3 lg:mt-0">
-                <a class="no-underline" href="#your-link">
-                    <i class="fab fa-apple text-indigo-600 hover:text-pink-500 text-xl transition-all duration-200"></i>
-                </a>
-                <a class="no-underline ml-2" href="#your-link"> 
-                    <i class="fab fa-android text-indigo-600 hover:text-pink-500 text-xl transition-all duration-200"></i>
-                </a>
-            </span>
+        </div>
+        
+        <span class="block lg:ml-3.5 mt-3 lg:mt-0 flex items-center">
+            <a class="no-underline" href="#your-link">
+                <i class="fab fa-apple text-indigo-600 hover:text-pink-500 text-xl transition-all duration-200"></i>
+            </a>
+            <a class="no-underline ml-4" href="#your-link"> 
+                <i class="fab fa-android text-indigo-600 hover:text-pink-500 text-xl transition-all duration-200"></i>
+            </a>
+             <!-- Hamburger Menu Button -->
+        <button class="lg:hidden text-2xl ml-14" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        </span>
     </div>
 </nav>
 <!-- end of navigation -->
+
+<script>
+    // JavaScript to toggle the visibility of the menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const navItems = document.getElementById('navbarsExampleDefault');
+
+    menuToggle.addEventListener('click', () => {
+        navItems.classList.toggle('hidden');
+        navItems.classList.toggle('flex');
+    });
+</script>
 
 <!-- Header -->
 <header id="header" class="header py-16 text-center md:py-24 lg:py-28 lg:text-left xl:py-32 xl:pb-40">
